@@ -31,84 +31,65 @@
   </div>
 </header>
 
-<main id="main" class="max-w-5xl mx-auto px-6 py-8 space-y-10">
+<main id="main" class="max-w-5xl mx-auto px-6 py-8 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
 
-  <section aria-labelledby="h-three" class="bg-white rounded-2xl shadow p-6">
-    <h2 id="h-three" class="text-xl font-bold">報讀軟體每碰到一個東西，只會告訴你三件事</h2>
-    <div class="mt-4 grid gap-4 md:grid-cols-3">
-      <div class="bg-amber-50 rounded-xl p-4">
-        <p class="text-amber-700 font-black text-3xl">1</p>
-        <p class="font-bold mt-1">名稱</p>
-        <p class="text-sm text-slate-600 mt-1">它叫什麼。「搜尋」「加入購物車」「本週特賣」。沒有名稱的按鈕會只剩下「按鈕」兩個字。</p>
-      </div>
-      <div class="bg-amber-50 rounded-xl p-4">
-        <p class="text-amber-700 font-black text-3xl">2</p>
-        <p class="font-bold mt-1">角色</p>
-        <p class="text-sm text-slate-600 mt-1">它是什麼。「連結」可以前往、「按鈕」可以按、「編輯區」可以打字、「標題」是段落的門牌。</p>
-      </div>
-      <div class="bg-amber-50 rounded-xl p-4">
-        <p class="text-amber-700 font-black text-3xl">3</p>
-        <p class="font-bold mt-1">狀態</p>
-        <p class="text-sm text-slate-600 mt-1">它現在怎麼了。「已勾選」「已展開」「必填」「無法使用」。</p>
-      </div>
-    </div>
-    <p class="mt-4 text-sm text-slate-600">試試看：用 <kbd>Tab</kbd> 依序碰下面四個東西，對照字幕列的文字。</p>
-    <div class="mt-3 flex flex-wrap gap-3 items-center">
-      <a href="#h-three" class="underline text-blue-700">我是連結</a>
-      <button type="button" class="bg-slate-800 text-white px-4 py-2 rounded-lg">我是按鈕</button>
-      <label class="inline-flex items-center gap-2"><input type="checkbox" class="w-5 h-5"> 我是核取方塊</label>
-      <label class="inline-flex items-center gap-2">我是編輯區 <input type="text" class="border rounded px-2 py-1 w-32" aria-describedby="hint1" required></label>
-      <span id="hint1" class="sr-only">這是補充說明，會接在後面唸</span>
+  <section aria-labelledby="h-steps">
+    <h2 id="h-steps" class="text-xl font-bold">照著做，每完成一步會打勾</h2>
+    <p class="mt-1 text-sm text-slate-600">這一課練「瀏覽模式」：Tab 只會停在可以操作的東西上，文章內容要用方向鍵和字母鍵來讀。跟著語音做就好。</p>
+    <div id="live" class="sr-only" aria-live="polite"></div>
+    <ol id="steps" class="mt-4 space-y-2">
+      <li data-step="three" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>Tab</kbd> 依序碰練習區最上面的四個東西，對照字幕列。報讀每碰到一個東西只會說三件事：<strong>名稱</strong>（它叫什麼）、<strong>角色</strong>（連結、按鈕、編輯區……）、<strong>狀態</strong>（已勾選、必填……）。</li>
+      <li data-step="down" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>游標會停在「一篇短文」標題上。按 <kbd>↓</kbd> 一段一段往下讀，讀到「第三句」為止。</li>
+      <li data-step="h" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>H</kbd>，會直接跳到下一個標題。連按到聽見「你找到我了」。<kbd>Shift</kbd>+<kbd>H</kbd> 是往上跳。</li>
+      <li data-step="k" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>K</kbd> 跳到下一個連結，找到「祕密連結」後按 <kbd>Enter</kbd>。</li>
+      <li data-step="b" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>B</kbd> 跳到下一個按鈕，找到「祕密按鈕」後按 <kbd>Enter</kbd>。</li>
+      <li data-step="esc" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>F</kbd> 跳到表單欄位，用 <kbd>Enter</kbd> 進入「留言」輸入框，隨便打幾個字，再按 <kbd>Esc</kbd> 離開回到瀏覽模式。（在輸入框裡，字母鍵是打字，不是跳躍。）</li>
+      <li data-step="live" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>用 <kbd>B</kbd> 找到「送出留言」按 <kbd>Enter</kbd>。注意：畫面某處出現的訊息會自動唸出來，這叫「動態訊息」。做得不好的網站，這裡會一片安靜。</li>
+      <li data-step="blind" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd> 開啟黑幕，再按一次關掉。等一下閉眼時可以用。</li>
+    </ol>
+    <div id="done" hidden class="mt-6 bg-emerald-100 border-2 border-emerald-400 rounded-xl p-5">
+      <p class="font-bold text-emerald-800 text-lg"><span data-site-icon="celebration"></span> 你已經具備盲人使用者的基本操作能力</p>
+      <p class="mt-1 text-sm text-emerald-900">接下來請戴好耳機、找好同伴，準備閉上眼睛。進入小舖 A 後，第一句話會是任務說明。</p>
+      <a href="../lab/good/index.html" class="inline-block mt-3 bg-emerald-600 text-white font-bold px-5 py-2 rounded-lg">前往小舖 A →</a>
     </div>
   </section>
 
-  <section aria-labelledby="h-browse" class="grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-    <div>
-      <h2 id="h-browse" class="text-xl font-bold">Tab 只會停在「可以操作」的東西上，那文章內容怎麼讀？</h2>
-      <p class="mt-2 text-sm text-slate-600 leading-relaxed">報讀軟體有「瀏覽模式」：用方向鍵一段一段往下讀，用字母鍵在特定元素之間跳躍。這是盲人使用者最常用的方式，比 Tab 快很多。照著下面練習。</p>
-      <div id="live" class="sr-only" aria-live="polite"></div>
-      <ol id="steps" class="mt-4 space-y-2">
-        <li data-step="down" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>先點一下右邊練習區以外的空白處，然後按 <kbd>↓</kbd> 一段一段往下讀，讀到「第三句」為止。</li>
-        <li data-step="h" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>H</kbd>，會直接跳到下一個標題。連按到聽見「你找到我了」。<kbd>Shift</kbd>+<kbd>H</kbd> 是往上跳。</li>
-        <li data-step="k" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>K</kbd> 跳到下一個連結，找到「祕密連結」後按 <kbd>Enter</kbd>。</li>
-        <li data-step="b" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>B</kbd> 跳到下一個按鈕，找到「祕密按鈕」後按 <kbd>Enter</kbd>。</li>
-        <li data-step="esc" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>F</kbd> 跳到表單欄位，用 <kbd>Enter</kbd> 進入「留言」輸入框，隨便打幾個字，再按 <kbd>Esc</kbd> 離開回到瀏覽模式。（在輸入框裡，字母鍵是打字，不是跳躍。）</li>
-        <li data-step="live" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>用 <kbd>B</kbd> 找到「送出留言」按 <kbd>Enter</kbd>。注意：畫面某處出現的訊息會自動唸出來，這叫「動態訊息」。做得不好的網站，這裡會一片安靜。</li>
-        <li data-step="blind" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd> 開啟黑幕，再按一次關掉。等一下閉眼時可以用。</li>
-      </ol>
-      <div id="done" hidden class="mt-6 bg-emerald-100 border-2 border-emerald-400 rounded-xl p-5">
-        <p class="font-bold text-emerald-800 text-lg"><span data-site-icon="celebration"></span> 你已經具備盲人使用者的基本操作能力</p>
-        <p class="mt-1 text-sm text-emerald-900">接下來請戴好耳機、找好同伴，準備閉上眼睛。進入小舖 A 後，第一句話會是任務說明。</p>
-        <a href="../lab/good/index.html" class="inline-block mt-3 bg-emerald-600 text-white font-bold px-5 py-2 rounded-lg">前往小舖 A →</a>
-      </div>
+  <section aria-labelledby="h-practice" class="bg-white rounded-2xl shadow p-6 space-y-4">
+    <h2 id="h-practice" class="text-xl font-bold">練習區</h2>
+
+    <div class="flex flex-wrap gap-3 items-center bg-amber-50 rounded-xl p-4">
+      <a href="#h-practice" id="demo-link" class="underline text-blue-700">我是連結</a>
+      <button type="button" id="demo-btn" class="bg-slate-800 text-white px-4 py-2 rounded-lg">我是按鈕</button>
+      <label class="inline-flex items-center gap-2">我是編輯區 <input type="text" id="demo-input" class="border rounded px-2 py-1 w-32" aria-describedby="hint1" required></label>
+      <span id="hint1" class="sr-only">這是補充說明，會接在後面唸</span>
+      <label class="inline-flex items-center gap-2"><input type="checkbox" id="demo-check" class="w-5 h-5"> 我是核取方塊</label>
     </div>
 
-    <article class="bg-white rounded-2xl shadow p-6 space-y-4" aria-label="練習區">
-      <h3 class="text-lg font-bold">一篇短文</h3>
-      <p>第一句：方向鍵往下，會像這樣一段一段唸給你聽。</p>
-      <p>第二句：一般人用眼睛掃描整頁只要一秒，盲人得一句一句聽。</p>
-      <p id="p3">第三句：所以「標題」非常重要，它讓人可以跳著聽，不用從頭聽到尾。</p>
-      <h3 class="text-lg font-bold">另一個小標題</h3>
-      <p>這裡有一個 <a href="#h-browse" class="underline text-blue-700">普通連結</a>，還有一段沒什麼用的文字，只是為了讓你多按幾下。</p>
-      <h3 id="found" class="text-lg font-bold">你找到我了</h3>
-      <p>再往下有 <a href="#found" id="secret-link" class="underline text-blue-700">祕密連結</a>，以及一個 <button type="button" id="secret-btn" class="bg-slate-800 text-white px-3 py-1 rounded">祕密按鈕</button>。</p>
-      <p id="secret-out" class="text-sm text-emerald-700 font-semibold min-h-5"></p>
-      <h3 class="text-lg font-bold">留個言</h3>
-      <div>
-        <label for="msg" class="block font-semibold">留言</label>
-        <textarea id="msg" rows="2" class="mt-1 border rounded-lg px-3 py-2 w-full"></textarea>
-      </div>
-      <button type="button" id="send" class="bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold">送出留言</button>
-      <p id="status" role="status" class="text-emerald-700 font-semibold min-h-5"></p>
-    </article>
+    <h3 id="intro" class="text-lg font-bold">一篇短文</h3>
+    <p>第一句：方向鍵往下，會像這樣一段一段唸給你聽。</p>
+    <p>第二句：一般人用眼睛掃描整頁只要一秒，盲人得一句一句聽。</p>
+    <p id="p3">第三句：所以「標題」非常重要，它讓人可以跳著聽，不用從頭聽到尾。</p>
+    <h3 class="text-lg font-bold">另一個小標題</h3>
+    <p>這裡有一個 <a href="#h-practice" class="underline text-blue-700">普通連結</a>，還有一段沒什麼用的文字，只是為了讓你多按幾下。</p>
+    <h3 id="found" class="text-lg font-bold">你找到我了</h3>
+    <p>再往下有 <a href="#found" id="secret-link" class="underline text-blue-700">祕密連結</a>，以及一個 <button type="button" id="secret-btn" class="bg-slate-800 text-white px-3 py-1 rounded">祕密按鈕</button>。</p>
+    <p id="secret-out" class="text-sm text-emerald-700 font-semibold min-h-5"></p>
+    <h3 class="text-lg font-bold">留個言</h3>
+    <div>
+      <label for="msg" class="block font-semibold">留言</label>
+      <textarea id="msg" rows="2" class="mt-1 border rounded-lg px-3 py-2 w-full"></textarea>
+    </div>
+    <button type="button" id="send" class="bg-emerald-600 text-white px-4 py-2 rounded-lg font-bold">送出留言</button>
+    <p id="status" role="status" class="text-emerald-700 font-semibold min-h-5"></p>
   </section>
 </main>
 
 <script>
 (function () {
-  var order = ['down', 'h', 'k', 'b', 'esc', 'live', 'blind'];
+  var order = ['three', 'down', 'h', 'k', 'b', 'esc', 'live', 'blind'];
   var hints = {
-    down: '教學：按向下方向鍵，一段一段往下讀，讀到第三句。',
+    three: '教學：按 Tab，依序碰練習區最上面的連結、按鈕、編輯區、核取方塊。注意聽，每個東西都只唸名稱、角色、狀態三件事。',
+    down: '很好。游標已經停在一篇短文標題上。按向下方向鍵，一段一段往下讀，讀到第三句。',
     h: '很好。按 H 跳到下一個標題，連按直到聽見你找到我了。',
     k: '很好。按 K 跳到下一個連結，找到祕密連結後按 Enter。',
     b: '很好。按 B 跳到下一個按鈕，找到祕密按鈕後按 Enter。',
@@ -116,8 +97,11 @@
     live: '很好。用 B 找到送出留言，按 Enter，聽聽看會發生什麼。',
     blind: '最後，按 Ctrl 加 Alt 加 B 開啟黑幕，再按一次關掉。',
   };
-  var idx = 0, typed = false, blindOn = false;
+  var demoIds = ['demo-link', 'demo-btn', 'demo-input', 'demo-check'];
+  var idx = 0, seen = {}, typed = false, blindOn = false;
   var live = document.getElementById('live');
+  var intro = document.getElementById('intro');
+  var p3 = document.getElementById('p3');
   function current() { return order[idx]; }
   function paint() {
     document.querySelectorAll('#steps li').forEach(function (li, i) {
@@ -125,6 +109,13 @@
       li.classList.toggle('step-done', i < idx);
       li.querySelector('span').innerHTML = SiteIcons.svg(i < idx ? 'square-check' : 'square-empty') + '<span class="sr-only">' + (i < idx ? '完成：' : '未完成：') + '</span>';
     });
+  }
+  // 把瀏覽游標放到短文標題上，讓 ↓ 從練習文章開始讀，不會經過頁面其他區塊
+  function parkCursor() {
+    if (!window.SRSim) return;
+    var active = document.activeElement;
+    if (active && active !== document.body) active.blur();
+    SRSim.setCursor(intro);
   }
   function advance() {
     idx += 1; paint();
@@ -134,10 +125,27 @@
       try { sessionStorage.setItem('lesson.02', '1'); } catch (e) {}
       return;
     }
+    // 延後執行：此時 sr-sim 的 focusin 還沒跑完，直接放會被它蓋回焦點元素
+    if (current() === 'down') setTimeout(parkCursor, 0);
     live.textContent = hints[current()];
   }
   paint();
-  setTimeout(function () { if (window.SRSim) window.SRSim.speak(hints.down, { interrupt: false }); }, 700);
+  setTimeout(function () { if (window.SRSim) window.SRSim.speak(hints.three, { interrupt: false }); }, 700);
+
+  document.addEventListener('focusin', function (e) {
+    if (current() !== 'three') return;
+    var id = e.target.id;
+    if (demoIds.indexOf(id) === -1) return;
+    seen[id] = true;
+    if (demoIds.every(function (d) { return seen[d]; })) advance();
+  });
+  // 步驟二時若游標不在「一篇短文」到「第三句」之間（例如又被 Tab 移走），按 ↓ 先拉回標題再往下讀
+  document.addEventListener('keydown', function (e) {
+    if (current() !== 'down' || e.key !== 'ArrowDown' || !window.SRSim) return;
+    var c = SRSim.cursor, F = Node.DOCUMENT_POSITION_FOLLOWING;
+    var inRange = c && (c === intro || c === p3 || ((intro.compareDocumentPosition(c) & F) && (c.compareDocumentPosition(p3) & F)));
+    if (!inRange) parkCursor();
+  }, true);
 
   document.addEventListener('srsim:cursor', function (e) {
     var el = e.detail.el;
