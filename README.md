@@ -15,7 +15,7 @@ lab/bad/                小舖 B：一般版，刻意埋入八個常見問題
 reveal.html             揭曉：兩版時間與按鍵數對照、八個問題逐條說明
 teacher.html            教師手冊：課程節奏、討論題、快速鍵
 assets/js/sr-sim.js     報讀模擬器（Web Speech API）
-assets/js/shop.js       商品資料與購物車（localStorage）
+assets/js/shop.js       商品資料與購物車（sessionStorage）
 assets/js/tasks.js      任務判定、計時、按鍵統計
 ```
 

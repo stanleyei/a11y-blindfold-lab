@@ -1,4 +1,4 @@
-/* shop.js — 兩版「小舖」共用的商品資料與購物車（純前端、localStorage） */
+/* shop.js — 兩版「小舖」共用的商品資料與購物車（純前端、sessionStorage） */
 (function () {
   'use strict';
   const PRODUCTS = [
@@ -16,10 +16,10 @@
   const cartKey = function () { return 'shop.cart.' + version(); };
 
   function getCart() {
-    try { return JSON.parse(localStorage.getItem(cartKey())) || []; } catch (e) { return []; }
+    try { return JSON.parse(sessionStorage.getItem(cartKey())) || []; } catch (e) { return []; }
   }
   function setCart(items) {
-    localStorage.setItem(cartKey(), JSON.stringify(items));
+    sessionStorage.setItem(cartKey(), JSON.stringify(items));
     document.dispatchEvent(new CustomEvent('shop:cart', { detail: { items: items } }));
   }
   function addToCart(id) {

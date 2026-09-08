@@ -109,9 +109,11 @@
     window.SRSim.speak('你好，我是報讀模擬器。等一下我會把你用鍵盤碰到的東西唸出來，例如：測試語音，按鈕。');
     setTimeout(status, 300);
   });
+  // 舊版曾把任務、購物車、教學進度存在 localStorage，載入時順手清掉
+  try { Object.keys(localStorage).filter(function (k) { return /^(lab\.|shop\.|lesson\.)/.test(k); }).forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
   document.getElementById('reset-all').addEventListener('click', function () {
     if (!confirm('會清除任務紀錄、購物車與教學進度（語音設定保留）。確定？')) return;
-    Object.keys(localStorage).filter(function (k) { return /^(lab\.|shop\.|lesson\.)/.test(k); }).forEach(function (k) { localStorage.removeItem(k); });
+    Object.keys(sessionStorage).filter(function (k) { return /^(lab\.|shop\.|lesson\.)/.test(k); }).forEach(function (k) { sessionStorage.removeItem(k); });
     window.SRSim.speak('已清除所有紀錄');
   });
   if (window.speechSynthesis) { speechSynthesis.addEventListener('voiceschanged', status); }

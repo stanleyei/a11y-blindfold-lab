@@ -130,7 +130,7 @@
     if (idx >= order.length) {
       document.getElementById('done').hidden = false;
       live.textContent = '教學一全部完成！可以前往教學二。';
-      try { localStorage.setItem('lesson.01', '1'); } catch (e) {}
+      try { sessionStorage.setItem('lesson.01', '1'); } catch (e) {}
       return;
     }
     live.textContent = hints[current()];

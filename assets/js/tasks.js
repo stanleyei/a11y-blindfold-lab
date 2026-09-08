@@ -13,9 +13,9 @@
   ];
 
   function load() {
-    try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+    try { return JSON.parse(sessionStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
   }
-  function save(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
+  function save(s) { sessionStorage.setItem(KEY, JSON.stringify(s)); }
   let state = Object.assign({ startedAt: null, finishedAt: null, keys: 0, done: {} }, load());
 
   function speak(t, opts) { if (window.SRSim) window.SRSim.speak(t, opts); }

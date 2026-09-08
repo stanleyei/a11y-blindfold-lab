@@ -133,7 +133,7 @@
 
 <script>
 (function () {
-  function load(k) { try { return JSON.parse(localStorage.getItem(k)) || null; } catch (e) { return null; } }
+  function load(k) { try { return JSON.parse(sessionStorage.getItem(k)) || null; } catch (e) { return null; } }
   function fmt(ms) { var s = Math.round(ms / 1000), m = Math.floor(s / 60); return (m ? m + ' 分 ' : '') + (s % 60) + ' 秒'; }
   var rows = [['小舖 A（無障礙版）', load('lab.good')], ['小舖 B（一般版）', load('lab.bad')]];
   var tb = document.getElementById('stats');

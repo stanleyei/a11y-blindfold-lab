@@ -131,7 +131,7 @@
     if (idx >= order.length) {
       document.getElementById('done').hidden = false;
       live.textContent = '教學二全部完成！可以前往小舖 A。';
-      try { localStorage.setItem('lesson.02', '1'); } catch (e) {}
+      try { sessionStorage.setItem('lesson.02', '1'); } catch (e) {}
       return;
     }
     live.textContent = hints[current()];
