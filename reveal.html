@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>揭曉：你剛剛遇到了什麼</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="assets/js/sr-sim.js"></script>
+<style>
+  kbd { background:#fff; border:1px solid #cbd5e1; border-bottom-width:3px; border-radius:.35rem; padding:0 .4rem; font-family:inherit; font-weight:700; }
+</style>
+</head>
+<body class="bg-amber-50 text-slate-800 font-sans">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-slate-900 focus:text-white focus:px-4 focus:py-2 focus:rounded">跳到主要內容</a>
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-5xl mx-auto px-6 py-8">
+    <p class="text-amber-400 font-bold tracking-widest text-xs">步驟 5｜睜眼進行</p>
+    <h1 class="text-3xl font-black mt-1">揭曉：你剛剛遇到了什麼</h1>
+    <p class="mt-3 text-slate-300">小舖 A 和小舖 B 賣一樣的東西、任務一模一樣，用眼睛看甚至覺得 B 比較漂亮。差別全在你聽不到的地方。</p>
+  </div>
+</header>
+
+<main id="main" class="max-w-5xl mx-auto px-6 py-10 space-y-12">
+
+  <section aria-labelledby="h-stats" class="bg-white rounded-2xl shadow p-6">
+    <h2 id="h-stats" class="text-2xl font-bold">你的數字</h2>
+    <p class="mt-1 text-sm text-slate-600">這台電腦上兩版的紀錄。全班可以一起把數字報出來寫在白板上。</p>
+    <div class="mt-4 overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <caption class="sr-only">兩版小舖完成任務的時間與按鍵數</caption>
+        <thead><tr class="border-b-2 border-slate-300"><th class="py-2 pr-4">版本</th><th class="py-2 pr-4">完成任務</th><th class="py-2 pr-4">花費時間</th><th class="py-2 pr-4">按鍵次數</th></tr></thead>
+        <tbody id="stats"></tbody>
+      </table>
+    </div>
+    <p id="ratio" class="mt-4 font-bold text-lg text-rose-700"></p>
+    <p class="mt-3 text-sm text-slate-600">提醒：真正的盲人使用者每天都在做這件事，而且沒有人會在旁邊說「任務完成」。</p>
+  </section>
+
+  <section aria-labelledby="h-why">
+    <h2 id="h-why" class="text-2xl font-bold">小舖 B 讓你卡住的八個地方</h2>
+    <p class="mt-1 text-slate-600">每一個都不是技術難題，只是沒有人想到。</p>
+    <ol class="mt-6 space-y-5">
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">1</div>
+        <div>
+          <h3 class="text-lg font-bold">前面塞了 17 個連結，而且沒有「跳到主要內容」</h3>
+          <p class="mt-1 text-slate-700">每換一頁都要 Tab 十幾下才到內容。五個社群圖示更只唸「連結、連結、連結」，你完全不知道那是什麼。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>頁面第一個 Tab 停留點是「跳到主要內容」；圖示連結給一個看不見但唸得出的名字。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">2</div>
+        <div>
+          <h3 class="text-lg font-bold">「本週特賣」只是字比較大，不是標題</h3>
+          <p class="mt-1 text-slate-700">按 <kbd>H</kbd> 會聽到「沒有更多標題」。對報讀軟體來說，粗體大字和一般文字沒有差別。你只能用方向鍵從頭一句一句聽下來。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>用真正的標題標籤（h1、h2、h3）。按 H 三下就到了。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">3</div>
+        <div>
+          <h3 class="text-lg font-bold">搜尋框沒有名字，搜尋按鈕不是按鈕</h3>
+          <p class="mt-1 text-slate-700">Tab 到搜尋框只聽到「編輯區，空白」。旁邊的放大鏡是一個畫上去的圖，Tab 跳不到、方向鍵也讀不到。你得自己猜「按 Enter 說不定會送出」。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>輸入框有「搜尋商品」這個名字；送出是真的按鈕，上面寫「搜尋」。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">4</div>
+        <div>
+          <h3 class="text-lg font-bold">搜尋完一片安靜，加入購物車也一片安靜</h3>
+          <p class="mt-1 text-slate-700">B 版搜尋後畫面有變，但沒有任何聲音告訴你「找到 3 筆」。按下加入購物車，右下角彈出一個小小的「已加入 ✓」，你聽不到。你不知道成功沒有，只好再按一次，於是購物車裡有兩個。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>把重要訊息放在一個標記為「動態訊息」的區域，報讀軟體會自動唸出來。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">5</div>
+        <div>
+          <h3 class="text-lg font-bold">六張商品圖唸出來是 DSC_0417、DSC_0418…</h3>
+          <p class="mt-1 text-slate-700">圖片沒有替代文字，報讀軟體只好唸檔名。商品卡上唯一的按鈕只有一個購物車小圖，聽到的是「按鈕」兩個字，三張卡三個「按鈕」，你不知道哪一個是藍牙耳機 Pro 的。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>圖片寫上替代文字；按鈕唸出來是「將 藍牙耳機 Pro 加入購物車，按鈕」。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">6</div>
+        <div>
+          <h3 class="text-lg font-bold">「運費說明」對話方塊開了，但你不知道它在哪</h3>
+          <p class="mt-1 text-slate-700">按下去之後焦點沒有移過去，頁面其他東西還是照常可以 Tab。內容其實被放在整個網頁的最後面，要按方向鍵幾十下才會讀到。按 Esc 關不掉，關閉鈕唸出來是一個「×」。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>用瀏覽器內建的對話方塊：打開就進去、Esc 就關掉、關掉後焦點回到原本的按鈕，且會先唸出「運費說明，對話方塊」。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">7</div>
+        <div>
+          <h3 class="text-lg font-bold">結帳表單：三個「編輯區」，一個假的下拉、一個假的勾選框</h3>
+          <p class="mt-1 text-slate-700">「姓名」「手機」的字在畫面上，但和輸入框沒有綁在一起，Tab 進去只聽到「編輯區」。配送方式是用一般文字畫出來的下拉選單，同意條款是一個畫出來的方框，勾了沒勾聽不出來。必填只用紅色星號、錯誤只用紅框，全都是給眼睛看的。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>每個欄位都有綁定的標籤，唸出來是「手機，編輯區，必填，09 開頭 10 碼數字」；用真的選項按鈕與核取方塊；錯誤訊息會被唸出來並告訴你有幾個問題。</p>
+        </div>
+      </li>
+
+      <li class="bg-white rounded-2xl shadow p-6 grid gap-4 md:grid-cols-[auto_1fr]">
+        <div class="text-4xl font-black text-rose-400">8</div>
+        <div>
+          <h3 class="text-lg font-bold">送出按鈕在填完前是灰的，而你不知道還缺什麼</h3>
+          <p class="mt-1 text-slate-700">按鈕被停用時 Tab 會直接跳過它，方向鍵讀到的是「送出訂單，按鈕，無法使用」。缺哪個欄位？沒有人告訴你。送出成功後畫面上方出現綠色橫幅，一樣沒有聲音。</p>
+          <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>按鈕一直可以按；按下去如果有問題，就唸出「表單有 2 個問題：請輸入手機、請勾選同意」；成功後焦點移到「訂單完成」標題上。</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-takeaway" class="bg-slate-900 text-white rounded-2xl p-8">
+    <h2 id="h-takeaway" class="text-2xl font-bold">帶走三句話</h2>
+    <ul class="mt-4 space-y-3 text-lg leading-relaxed">
+      <li>🔊 <strong>能看到的，不一定聽得到。</strong>顏色、位置、大小、圖示，對報讀軟體全是空氣。</li>
+      <li>🏷️ <strong>每個東西要有名字和身分。</strong>「按鈕」不是名字；「加入購物車，按鈕」才是。</li>
+      <li>📣 <strong>事情發生了，要說出來。</strong>搜尋完、加入了、送出了、出錯了，都要有人講。</li>
+    </ul>
+    <p class="mt-6 text-slate-300 text-sm">你今天用的是模擬器。真的報讀軟體 <a href="https://www.nvaccess.org/download/" class="underline text-amber-300">NVDA</a> 是免費的，Windows 可以直接裝來試；macOS 按 <kbd class="text-slate-900">⌘</kbd>+<kbd class="text-slate-900">F5</kbd> 就有內建的 VoiceOver。真的報讀軟體功能多很多，也快很多，但今天聽到的那些「按鈕」「連結」「編輯區」，它們唸的一模一樣。</p>
+  </section>
+
+  <p class="text-center text-sm text-slate-500"><a href="index.html" class="underline">回工作坊首頁</a></p>
+</main>
+
+<script>
+(function () {
+  function load(k) { try { return JSON.parse(localStorage.getItem(k)) || null; } catch (e) { return null; } }
+  function fmt(ms) { var s = Math.round(ms / 1000), m = Math.floor(s / 60); return (m ? m + ' 分 ' : '') + (s % 60) + ' 秒'; }
+  var rows = [['小舖 A（無障礙版）', load('lab.good')], ['小舖 B（一般版）', load('lab.bad')]];
+  var tb = document.getElementById('stats');
+  var ms = [];
+  rows.forEach(function (r) {
+    var s = r[1]; var done = s ? Object.keys(s.done || {}).length : 0;
+    var time = s && s.startedAt ? fmt((s.finishedAt || Date.now()) - s.startedAt) + (s.finishedAt ? '' : '（未完成）') : '—';
+    if (s && s.finishedAt) ms.push([s.finishedAt - s.startedAt, s.keys]);
+    tb.innerHTML += '<tr class="border-b"><td class="py-3 pr-4 font-semibold">' + r[0] + '</td><td class="py-3 pr-4">' + done + ' / 4</td><td class="py-3 pr-4">' + time + '</td><td class="py-3 pr-4">' + (s ? s.keys : '—') + ' 次</td></tr>';
+  });
+  if (ms.length === 2 && ms[0][0] > 0) {
+    document.getElementById('ratio').textContent = '同樣的四件事，小舖 B 花了 ' + (ms[1][0] / ms[0][0]).toFixed(1) + ' 倍的時間、' + (ms[1][1] / Math.max(ms[0][1], 1)).toFixed(1) + ' 倍的按鍵。';
+  } else if (ms.length < 2) {
+    document.getElementById('ratio').textContent = '有一版尚未完成，所以還算不出倍數。沒完成也是一種結果：很多人就是在那裡放棄的。';
+  }
+})();
+</script>
+</body>
+</html>

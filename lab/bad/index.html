@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小舖 B</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="../../assets/js/sr-sim.js"></script>
+<script defer src="../../assets/js/shop.js"></script>
+<script defer src="../../assets/js/tasks.js"></script>
+<style>*:focus{outline:none !important}</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+<button type="button" id="task-replay" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-amber-500 focus:text-slate-900 focus:font-bold focus:px-4 focus:py-2 focus:rounded">重聽任務說明</button>
+
+<div class="bg-violet-700 text-white text-xs text-center py-1">🎉 夏日特賣進行中！全館 8 折，滿千免運 🎉</div>
+<div class="bg-white shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center gap-5">
+    <a href="index.html"><img src="../../assets/img/logo_final_v3.svg" width="120" height="36" class="h-9"></a>
+    <div class="flex-1 flex flex-wrap gap-4 text-sm">
+      <a href="index.html" class="hover:text-violet-700">首頁</a>
+      <a href="results.html" class="hover:text-violet-700">商品</a>
+      <a href="results.html?q=耳機" class="hover:text-violet-700">耳機</a>
+      <a href="results.html?q=生活" class="hover:text-violet-700">生活</a>
+      <a href="results.html?q=文具" class="hover:text-violet-700">文具</a>
+      <a href="results.html" class="hover:text-violet-700">新品</a>
+      <a href="index.html#sale" class="hover:text-violet-700">特賣</a>
+      <a href="#" class="hover:text-violet-700">品牌故事</a>
+      <a href="#" class="hover:text-violet-700">門市</a>
+      <a href="#" class="hover:text-violet-700">會員</a>
+      <a href="#" class="hover:text-violet-700">客服</a>
+      <a href="#" class="hover:text-violet-700">部落格</a>
+    </div>
+    <div class="flex gap-2 text-slate-500">
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.5-8.5a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zM21 8c-.1-1.6-.4-3-1.6-4.2S16.6 2.1 15 2c-1.6-.1-6.4-.1-8 0-1.6.1-3 .4-4.2 1.6S1.1 6.4 1 8c-.1 1.6-.1 6.4 0 8 .1 1.6.4 3 1.6 4.2S6.4 21.9 8 22c1.6.1 6.4.1 8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.4 0-8zm-2.2 9.8c-.4.9-1 1.5-1.9 1.9-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4c-.9-.4-1.5-1-1.9-1.9-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9c.4-.9 1-1.5 1.9-1.9 1.3-.5 4.4-.4 5.9-.4s4.6-.1 5.9.4c.9.4 1.5 1 1.9 1.9.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg></a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 3H4.4A1.4 1.4 0 0 0 3 4.4v15.2A1.4 1.4 0 0 0 4.4 21h15.2a1.4 1.4 0 0 0 1.4-1.4V4.4A1.4 1.4 0 0 0 19.6 3zM8.3 18.3H5.7V9.7h2.6v8.6zM7 8.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.3 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.7h2.5v1.2c.4-.7 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4v4.8z"/></svg></a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.6-.9-2.3c-.9-.9-1.8-.9-2.3-1C16.6 3.5 12 3.5 12 3.5s-4.6 0-7.8.2c-.5.1-1.4.1-2.3 1C1.2 5.4 1 7 1 7s-.2 1.9-.2 3.8v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.2 7.6.2s4.6 0 7.8-.2c.5-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7C23.2 8.9 23 7 23 7zM9.7 14.6V8l6 3.3-6 3.3z"/></svg></a>
+      <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.4.1 2.6.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+    </div>
+    <form action="results.html" method="get" class="relative">
+      <input name="q" type="text" class="border rounded-full pl-4 pr-10 py-2 w-48 bg-slate-100">
+      <div class="absolute right-3 top-2.5 cursor-pointer text-slate-500" onclick="this.parentNode.submit()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+    </form>
+    <div class="cursor-pointer relative text-slate-700" onclick="location.href='checkout.html'">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-violet-600 text-white text-xs rounded-full w-5 h-5 grid place-items-center">0</span>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-6xl mx-auto px-6 py-8 space-y-12">
+  <div class="rounded-3xl overflow-hidden shadow-lg">
+    <img src="../../assets/img/hero.svg" class="w-full h-64 object-cover" width="400" height="300">
+  </div>
+
+  <div id="sale">
+    <div data-task="sale-heading" class="text-3xl font-black text-violet-800">本週特賣</div>
+    <div id="sale-list" class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </div>
+
+  <div>
+    <div class="text-3xl font-black text-violet-800">新品上架</div>
+    <div id="new-list" class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </div>
+</div>
+
+<div class="bg-slate-900 text-slate-300 mt-12">
+  <div class="max-w-6xl mx-auto px-6 py-8 grid gap-6 md:grid-cols-3 text-sm">
+    <div><div class="font-bold text-white mb-2">關於我們</div><p>想知道更多品牌故事？<a href="#" class="text-violet-300 underline">點這裡</a></p></div>
+    <div><div class="font-bold text-white mb-2">客戶服務</div><p>退換貨政策請<a href="#" class="text-violet-300 underline">點這裡</a>，常見問題請<a href="#" class="text-violet-300 underline">點這裡</a></p></div>
+    <div><div class="font-bold text-white mb-2">工作坊</div><a href="../../index.html" class="text-violet-300 underline">回工作坊首頁</a></div>
+  </div>
+</div>
+<div id="toast" class="fixed bottom-24 right-6 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg opacity-0 transition-opacity pointer-events-none"></div>
+<aside id="task-panel" class="fixed top-14 right-4 w-64 bg-white/95 border border-amber-300 rounded-xl shadow p-3 text-slate-700" aria-hidden="true"></aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function card(p) {
+    return '<div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">' +
+      '<img src="../../assets/img/' + p.img + '" width="400" height="300" class="w-full aspect-[4/3] object-cover">' +
+      '<div class="p-4 flex-1 flex flex-col">' +
+        '<div class="font-bold text-lg">' + p.name + '</div>' +
+        '<div class="text-sm text-slate-500 mt-1">' + p.desc + '</div>' +
+        '<div class="mt-2 flex items-center justify-between">' +
+          '<span class="font-black text-violet-700">' + Shop.money(p.price) + '</span>' +
+          '<button type="button" data-add="' + p.id + '" class="bg-violet-600 hover:bg-violet-700 text-white w-10 h-10 rounded-full grid place-items-center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></button>' +
+        '</div>' +
+      '</div></div>';
+  }
+  document.getElementById('sale-list').innerHTML = Shop.PRODUCTS.slice(3).map(card).join('');
+  document.getElementById('new-list').innerHTML = Shop.PRODUCTS.slice(0, 3).map(card).join('');
+  function updateCount() { document.getElementById('cart-count').textContent = Shop.cartCount(); }
+  updateCount();
+  var toast = document.getElementById('toast'), t;
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-add]'); if (!b) return;
+    var p = Shop.byId(b.dataset.add); Shop.addToCart(p.id); updateCount();
+    toast.textContent = '已加入購物車 ✓'; toast.style.opacity = 1; clearTimeout(t); t = setTimeout(function () { toast.style.opacity = 0; }, 1800);
+  });
+});
+</script>
+</body>
+</html>

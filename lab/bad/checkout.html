@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小舖 B</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="../../assets/js/sr-sim.js"></script>
+<script defer src="../../assets/js/shop.js"></script>
+<script defer src="../../assets/js/tasks.js"></script>
+<style>
+  *:focus{outline:none !important}
+  .field.err{border-color:#e11d48;background:#fff1f2}
+  .chk{width:22px;height:22px;border:2px solid #94a3b8;border-radius:6px;display:inline-grid;place-items:center;cursor:pointer;background:#fff}
+  .chk.on{background:#7c3aed;border-color:#7c3aed}
+  .chk.on::after{content:'✓';color:#fff;font-weight:700;font-size:14px}
+</style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+<button type="button" id="task-replay" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-amber-500 focus:text-slate-900 focus:font-bold focus:px-4 focus:py-2 focus:rounded">重聽任務說明</button>
+
+<div class="bg-violet-700 text-white text-xs text-center py-1">🎉 夏日特賣進行中！全館 8 折，滿千免運 🎉</div>
+<div class="bg-white shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center gap-5">
+    <a href="index.html"><img src="../../assets/img/logo_final_v3.svg" width="120" height="36" class="h-9"></a>
+    <div class="flex-1 flex flex-wrap gap-4 text-sm">
+      <a href="index.html" class="hover:text-violet-700">首頁</a>
+      <a href="results.html" class="hover:text-violet-700">商品</a>
+      <a href="results.html?q=耳機" class="hover:text-violet-700">耳機</a>
+      <a href="results.html?q=生活" class="hover:text-violet-700">生活</a>
+      <a href="results.html?q=文具" class="hover:text-violet-700">文具</a>
+      <a href="results.html" class="hover:text-violet-700">新品</a>
+      <a href="index.html#sale" class="hover:text-violet-700">特賣</a>
+      <a href="#" class="hover:text-violet-700">品牌故事</a>
+      <a href="#" class="hover:text-violet-700">門市</a>
+      <a href="#" class="hover:text-violet-700">會員</a>
+      <a href="#" class="hover:text-violet-700">客服</a>
+      <a href="#" class="hover:text-violet-700">部落格</a>
+    </div>
+    <div class="cursor-pointer relative text-slate-700">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-violet-600 text-white text-xs rounded-full w-5 h-5 grid place-items-center">0</span>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-3xl mx-auto px-6 py-8">
+  <div id="success" hidden class="mb-6 bg-emerald-100 text-emerald-800 rounded-2xl p-5 font-bold">✓ 訂單完成！訂單編號 <span id="order-no"></span>，感謝購買。</div>
+
+  <div class="text-3xl font-black text-violet-800">結帳</div>
+
+  <div class="mt-6 bg-white rounded-2xl shadow p-5">
+    <div class="font-bold text-lg">購物車</div>
+    <div id="cart-list" class="mt-2 divide-y"></div>
+    <div id="cart-empty" hidden class="mt-2 text-slate-500">購物車是空的</div>
+    <div class="mt-2 font-bold text-right">小計：<span id="total"></span></div>
+  </div>
+
+  <div id="form" class="mt-8 bg-white rounded-2xl shadow p-5 space-y-5">
+    <div class="font-bold text-lg">收件資訊</div>
+    <div>
+      <div class="text-sm font-semibold text-slate-600">姓名 <span class="text-rose-600">*</span></div>
+      <input id="name" type="text" class="field mt-1 border rounded-lg px-3 py-2 w-full">
+    </div>
+    <div>
+      <div class="text-sm font-semibold text-slate-600">手機 <span class="text-rose-600">*</span></div>
+      <input id="phone" type="text" class="field mt-1 border rounded-lg px-3 py-2 w-full">
+    </div>
+    <div>
+      <div class="text-sm font-semibold text-slate-600">配送方式 <span class="text-rose-600">*</span></div>
+      <div class="relative mt-1">
+        <div id="ship-btn" class="field border rounded-lg px-3 py-2 w-full bg-white cursor-pointer flex justify-between" onclick="toggleShip()"><span id="ship-label" class="text-slate-400">請選擇</span><span>▾</span></div>
+        <div id="ship-menu" hidden class="absolute left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg z-10">
+          <div class="px-3 py-2 hover:bg-violet-50 cursor-pointer" onclick="pickShip('宅配')">宅配（80 元）</div>
+          <div class="px-3 py-2 hover:bg-violet-50 cursor-pointer" onclick="pickShip('超商取貨')">超商取貨（60 元）</div>
+          <div class="px-3 py-2 hover:bg-violet-50 cursor-pointer" onclick="pickShip('門市自取')">門市自取（免運）</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 cursor-pointer" onclick="toggleAgree()">
+      <span id="agree" class="chk"></span>
+      <span class="text-sm">我已閱讀並同意購物條款</span>
+    </div>
+    <button type="button" id="submit" disabled class="w-full bg-violet-600 disabled:bg-slate-300 text-white font-bold px-6 py-3 rounded-xl text-lg" onclick="submitOrder()">送出訂單</button>
+  </div>
+</div>
+
+<div class="bg-slate-900 text-slate-300 mt-12">
+  <div class="max-w-6xl mx-auto px-6 py-8 grid gap-6 md:grid-cols-3 text-sm">
+    <div><div class="font-bold text-white mb-2">關於我們</div><p>想知道更多品牌故事？<a href="#" class="text-violet-300 underline">點這裡</a></p></div>
+    <div><div class="font-bold text-white mb-2">客戶服務</div><p>退換貨政策請<a href="#" class="text-violet-300 underline">點這裡</a>，常見問題請<a href="#" class="text-violet-300 underline">點這裡</a></p></div>
+    <div><div class="font-bold text-white mb-2">工作坊</div><a href="../../index.html" class="text-violet-300 underline">回工作坊首頁</a></div>
+  </div>
+</div>
+<aside id="task-panel" class="fixed top-14 right-4 w-64 bg-white/95 border border-amber-300 rounded-xl shadow p-3 text-slate-700" aria-hidden="true"></aside>
+
+<script>
+var ship = '', agreed = false;
+function toggleShip() { var m = document.getElementById('ship-menu'); m.hidden = !m.hidden; }
+function pickShip(v) {
+  ship = v; var l = document.getElementById('ship-label'); l.textContent = v; l.className = '';
+  document.getElementById('ship-menu').hidden = true; validate();
+}
+function toggleAgree() { agreed = !agreed; document.getElementById('agree').classList.toggle('on', agreed); validate(); }
+function validate() {
+  var name = document.getElementById('name'), phone = document.getElementById('phone');
+  var okName = name.value.trim().length > 0, okPhone = /^09\d{8}$/.test(phone.value.trim());
+  name.classList.toggle('err', !okName && name.dataset.touched);
+  phone.classList.toggle('err', !okPhone && phone.dataset.touched);
+  document.getElementById('ship-btn').classList.toggle('err', !ship && document.getElementById('ship-btn').dataset.touched);
+  document.getElementById('submit').disabled = !(okName && okPhone && ship && agreed);
+}
+function submitOrder() {
+  document.getElementById('form').hidden = true;
+  document.getElementById('order-no').textContent = 'B' + Date.now().toString().slice(-6);
+  document.getElementById('success').hidden = false;
+  Shop.clearCart();
+  document.dispatchEvent(new CustomEvent('shop:order'));
+}
+document.addEventListener('DOMContentLoaded', function () {
+  var items = Shop.getCart(), total = 0;
+  document.getElementById('cart-count').textContent = Shop.cartCount();
+  document.getElementById('cart-list').innerHTML = items.map(function (i) {
+    var p = Shop.byId(i.id); total += p.price * i.qty;
+    return '<div class="py-2 flex justify-between"><span>' + p.name + ' × ' + i.qty + '</span><span>' + Shop.money(p.price * i.qty) + '</span></div>';
+  }).join('');
+  document.getElementById('cart-empty').hidden = items.length > 0;
+  document.getElementById('total').textContent = Shop.money(total);
+  ['name', 'phone'].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener('input', validate);
+    el.addEventListener('blur', function () { el.dataset.touched = '1'; validate(); });
+  });
+  document.getElementById('ship-btn').addEventListener('click', function () { this.dataset.touched = '1'; });
+});
+</script>
+</body>
+</html>

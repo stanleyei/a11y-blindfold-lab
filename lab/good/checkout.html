@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小舖 A：結帳</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="../../assets/js/sr-sim.js"></script>
+<script defer src="../../assets/js/shop.js"></script>
+<script defer src="../../assets/js/tasks.js"></script>
+</head>
+<body class="bg-white text-slate-800 font-sans">
+<button type="button" id="task-replay" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-amber-500 focus:text-slate-900 focus:font-bold focus:px-4 focus:py-2 focus:rounded">重聽任務說明</button>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-slate-900 focus:text-white focus:px-4 focus:py-2 focus:rounded">跳到主要內容</a>
+
+<header class="border-b">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap items-center gap-6">
+    <a href="index.html" class="text-2xl font-black text-emerald-700">小舖 A</a>
+    <nav aria-label="主要選單" class="flex-1">
+      <ul class="flex flex-wrap gap-4 text-sm">
+        <li><a href="index.html" class="hover:underline">首頁</a></li>
+        <li><a href="results.html?q=耳機" class="hover:underline">耳機</a></li>
+        <li><a href="results.html?q=生活" class="hover:underline">生活用品</a></li>
+        <li><a href="results.html?q=文具" class="hover:underline">文具</a></li>
+        <li><a href="results.html" class="hover:underline">全部商品</a></li>
+      </ul>
+    </nav>
+    <a href="checkout.html" aria-current="page" class="text-sm font-semibold">購物車（<span id="cart-count">0</span>）</a>
+  </div>
+</header>
+
+<main id="main" class="max-w-3xl mx-auto px-6 py-8">
+  <h1 class="text-3xl font-black">結帳</h1>
+
+  <section aria-labelledby="h-cart" class="mt-6">
+    <h2 id="h-cart" class="text-xl font-bold">購物車內容</h2>
+    <ul id="cart-list" class="mt-2 divide-y border rounded-xl"></ul>
+    <p id="cart-empty" hidden class="mt-2 text-slate-600">購物車是空的。<a href="results.html" class="underline">去逛逛</a></p>
+    <p class="mt-2 font-bold text-right">小計：<span id="total"></span></p>
+  </section>
+
+  <form id="form" novalidate class="mt-8 space-y-6" aria-labelledby="h-form">
+    <h2 id="h-form" class="text-xl font-bold">收件資訊</h2>
+    <div id="errors" role="alert" tabindex="-1" hidden class="bg-rose-50 border-2 border-rose-400 rounded-xl p-4 text-rose-800"></div>
+
+    <div>
+      <label for="name" class="block font-semibold">姓名 <span aria-hidden="true" class="text-rose-600">*</span></label>
+      <input id="name" name="name" type="text" required autocomplete="name" aria-describedby="name-err" class="mt-1 border rounded-lg px-3 py-2 w-full">
+      <p id="name-err" class="text-rose-700 text-sm mt-1"></p>
+    </div>
+    <div>
+      <label for="phone" class="block font-semibold">手機 <span aria-hidden="true" class="text-rose-600">*</span></label>
+      <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="numeric" aria-describedby="phone-hint phone-err" class="mt-1 border rounded-lg px-3 py-2 w-full">
+      <p id="phone-hint" class="text-sm text-slate-500 mt-1">09 開頭，10 碼數字</p>
+      <p id="phone-err" class="text-rose-700 text-sm mt-1"></p>
+    </div>
+    <fieldset>
+      <legend class="font-semibold">配送方式 <span aria-hidden="true" class="text-rose-600">*</span></legend>
+      <div class="mt-2 grid gap-2">
+        <label class="flex items-center gap-2 border rounded-lg p-3"><input type="radio" name="ship" value="宅配" required> 宅配（80 元，滿 1,500 免運）</label>
+        <label class="flex items-center gap-2 border rounded-lg p-3"><input type="radio" name="ship" value="超商取貨"> 超商取貨（60 元）</label>
+        <label class="flex items-center gap-2 border rounded-lg p-3"><input type="radio" name="ship" value="門市自取"> 門市自取（免運）</label>
+      </div>
+      <p id="ship-err" class="text-rose-700 text-sm mt-1"></p>
+    </fieldset>
+    <div>
+      <label class="flex items-center gap-2"><input id="agree" name="agree" type="checkbox" required aria-describedby="agree-err" class="w-5 h-5"> 我已閱讀並同意購物條款</label>
+      <p id="agree-err" class="text-rose-700 text-sm mt-1"></p>
+    </div>
+    <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl text-lg">送出訂單</button>
+  </form>
+
+  <section id="success" hidden aria-labelledby="h-success" class="mt-8 bg-emerald-50 border-2 border-emerald-400 rounded-2xl p-6">
+    <h2 id="h-success" tabindex="-1" class="text-2xl font-black text-emerald-800">訂單完成，感謝購買！</h2>
+    <p class="mt-2 text-emerald-900">訂單編號 <span id="order-no"></span>，確認信已寄出。</p>
+    <a href="index.html" class="inline-block mt-4 underline">回小舖首頁</a>
+  </section>
+</main>
+
+<footer class="border-t mt-12">
+  <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-slate-500 flex flex-wrap justify-between gap-4">
+    <p>© 小舖 A（教學用）</p>
+    <nav aria-label="頁尾選單"><a href="../../index.html" class="underline">回工作坊首頁</a></nav>
+  </div>
+</footer>
+<aside id="task-panel" class="fixed top-4 right-4 w-64 bg-white/95 border border-amber-300 rounded-xl shadow p-3 text-slate-700" aria-hidden="true"></aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var items = Shop.getCart();
+  document.getElementById('cart-count').textContent = Shop.cartCount();
+  var total = 0;
+  document.getElementById('cart-list').innerHTML = items.map(function (i) {
+    var p = Shop.byId(i.id); total += p.price * i.qty;
+    return '<li class="p-3 flex justify-between"><span>' + p.name + ' × ' + i.qty + '</span><span>' + Shop.money(p.price * i.qty) + '</span></li>';
+  }).join('');
+  document.getElementById('cart-empty').hidden = items.length > 0;
+  document.getElementById('total').textContent = Shop.money(total);
+
+  var form = document.getElementById('form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var errs = [];
+    var name = document.getElementById('name'), phone = document.getElementById('phone'), agree = document.getElementById('agree');
+    var ship = form.querySelector('input[name="ship"]:checked');
+    function setErr(input, msgEl, msg) {
+      msgEl.textContent = msg || '';
+      input.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      if (msg) errs.push({ input: input, msg: msg });
+    }
+    setErr(name, document.getElementById('name-err'), name.value.trim() ? '' : '請輸入姓名');
+    setErr(phone, document.getElementById('phone-err'), /^09\d{8}$/.test(phone.value.trim()) ? '' : '請輸入 09 開頭的 10 碼手機號碼');
+    document.getElementById('ship-err').textContent = ship ? '' : '請選擇配送方式';
+    if (!ship) errs.push({ input: form.querySelector('input[name="ship"]'), msg: '請選擇配送方式' });
+    setErr(agree, document.getElementById('agree-err'), agree.checked ? '' : '請勾選同意購物條款');
+
+    var box = document.getElementById('errors');
+    if (errs.length) {
+      box.hidden = false;
+      box.innerHTML = '<p class="font-bold">表單有 ' + errs.length + ' 個問題：</p><ul class="list-disc pl-5 mt-1">' + errs.map(function (x) { return '<li>' + x.msg + '</li>'; }).join('') + '</ul>';
+      box.focus();
+      return;
+    }
+    box.hidden = true;
+    form.hidden = true;
+    document.getElementById('order-no').textContent = 'A' + Date.now().toString().slice(-6);
+    var s = document.getElementById('success'); s.hidden = false;
+    document.getElementById('h-success').focus();
+    Shop.clearCart();
+    document.dispatchEvent(new CustomEvent('shop:order'));
+  });
+});
+</script>
+</body>
+</html>

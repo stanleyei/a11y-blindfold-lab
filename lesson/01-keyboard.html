@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>教學一：鍵盤操作</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script defer src="../assets/js/sr-sim.js"></script>
+<style>
+  kbd { background:#fff; border:1px solid #cbd5e1; border-bottom-width:3px; border-radius:.35rem; padding:0 .4rem; font-family:inherit; font-weight:700; }
+  .step-done { opacity:.55; }
+  .step-current { background:#fef3c7; border-color:#f59e0b; }
+</style>
+</head>
+<body class="bg-amber-50 text-slate-800 font-sans">
+<a href="#main" id="skip" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-slate-900 focus:text-white focus:px-4 focus:py-2 focus:rounded">跳到主要內容</a>
+
+<header class="bg-slate-900 text-white">
+  <div class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between gap-4">
+    <div>
+      <p class="text-amber-400 font-bold tracking-widest text-xs">步驟 1｜睜眼進行</p>
+      <h1 class="text-2xl font-black">教學一：鍵盤操作</h1>
+    </div>
+    <nav aria-label="課程導覽" class="text-sm">
+      <a href="../index.html" class="underline">首頁</a>
+      <span aria-hidden="true" class="mx-2">·</span>
+      <a href="02-reader.html" class="underline">下一課</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="max-w-5xl mx-auto px-6 py-8 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+
+  <section aria-labelledby="h-steps">
+    <h2 id="h-steps" class="text-xl font-bold">照著做，每完成一步會打勾</h2>
+    <p class="mt-1 text-sm text-slate-600">你不需要滑鼠。從現在開始把手放在鍵盤上。</p>
+    <div id="live" class="sr-only" aria-live="polite"></div>
+    <ol id="steps" class="mt-4 space-y-2">
+      <li data-step="tab" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>按 <kbd>Tab</kbd>，每按一次焦點就往前跳一格。連按幾次，直到聽見「按鈕 A，按鈕」。注意聽：路上經過了什麼？</li>
+      <li data-step="shifttab" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>再按一次 <kbd>Tab</kbd> 到「按鈕 B」，然後按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回「按鈕 A」。</li>
+      <li data-step="enter" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>停在「按鈕 A」上，按 <kbd>Enter</kbd> 啟動它。</li>
+      <li data-step="space" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到核取方塊，按<kbd>空白鍵</kbd>勾選。聽狀態怎麼變。</li>
+      <li data-step="radio" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「配送方式」，用 <kbd>↓</kbd> 或 <kbd>→</kbd> 選到「超商取貨」。</li>
+      <li data-step="type" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「你的暱稱」輸入框，打「你好」兩個字。聽打字回音。</li>
+      <li data-step="select" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「城市」下拉選單，用 <kbd>↓</kbd> 選到「台中」。</li>
+      <li data-step="dialog" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「打開說明」按 <kbd>Enter</kbd>，聽完後按 <kbd>Esc</kbd> 關掉。注意焦點回到哪裡。</li>
+      <li data-step="skip" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>一直按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回頁面最上面，直到聽見「跳到主要內容，連結」。很多網站把它藏在第一個位置。</li>
+    </ol>
+    <div id="done" hidden class="mt-6 bg-emerald-100 border-2 border-emerald-400 rounded-xl p-5">
+      <p class="font-bold text-emerald-800 text-lg">🎉 全部完成！</p>
+      <p class="mt-1 text-sm text-emerald-900">你已經會用鍵盤操作網頁了。接下來學會「聽懂」報讀在說什麼。</p>
+      <a href="02-reader.html" class="inline-block mt-3 bg-emerald-600 text-white font-bold px-5 py-2 rounded-lg">前往教學二 →</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-practice" class="bg-white rounded-2xl shadow p-6 space-y-6">
+    <h2 id="h-practice" class="text-xl font-bold">練習區</h2>
+
+    <div class="flex gap-3">
+      <button type="button" id="btn-a" class="bg-slate-800 text-white px-5 py-2 rounded-lg focus:outline-4 focus:outline-amber-400">按鈕 A</button>
+      <button type="button" id="btn-b" class="bg-slate-800 text-white px-5 py-2 rounded-lg focus:outline-4 focus:outline-amber-400">按鈕 B</button>
+      <output id="btn-out" class="self-center text-sm text-slate-600"></output>
+    </div>
+
+    <div>
+      <label class="inline-flex items-center gap-2"><input type="checkbox" id="agree" class="w-5 h-5"> 我聽到了狀態變化</label>
+    </div>
+
+    <fieldset class="border rounded-xl p-4">
+      <legend class="px-2 font-semibold">配送方式</legend>
+      <div class="flex flex-wrap gap-4">
+        <label class="inline-flex items-center gap-2"><input type="radio" name="ship" value="宅配" checked> 宅配</label>
+        <label class="inline-flex items-center gap-2"><input type="radio" name="ship" value="超商取貨"> 超商取貨</label>
+        <label class="inline-flex items-center gap-2"><input type="radio" name="ship" value="門市自取"> 門市自取</label>
+      </div>
+    </fieldset>
+
+    <div>
+      <label for="nick" class="block font-semibold">你的暱稱</label>
+      <input id="nick" type="text" class="mt-1 border rounded-lg px-3 py-2 w-full max-w-xs" autocomplete="off">
+    </div>
+
+    <div>
+      <label for="city" class="block font-semibold">城市</label>
+      <select id="city" class="mt-1 border rounded-lg px-3 py-2">
+        <option>台北</option><option>新竹</option><option>台中</option><option>高雄</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="button" id="open-dialog" class="border-2 border-slate-800 px-5 py-2 rounded-lg focus:outline-4 focus:outline-amber-400">打開說明</button>
+      <dialog id="dlg" aria-labelledby="dlg-h" class="rounded-2xl p-6 max-w-md backdrop:bg-black/50">
+        <h3 id="dlg-h" class="text-lg font-bold">這是一個對話方塊</h3>
+        <p class="mt-2 text-slate-700">做好的對話方塊會把焦點帶進來，按 Esc 就能關掉，關掉後焦點會回到剛才的按鈕。</p>
+        <form method="dialog" class="mt-4 text-right"><button class="bg-slate-800 text-white px-4 py-2 rounded-lg">知道了</button></form>
+      </dialog>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var order = ['tab', 'shifttab', 'enter', 'space', 'radio', 'type', 'select', 'dialog', 'skip'];
+  var hints = {
+    tab: '教學：請按 Tab，連按幾次，直到聽見按鈕 A。',
+    shifttab: '很好。再按一次 Tab 到按鈕 B，然後按住 Shift 再按 Tab 退回按鈕 A。',
+    enter: '很好。現在停在按鈕 A，按 Enter 啟動它。',
+    space: '很好。按 Tab 到核取方塊，按空白鍵勾選。',
+    radio: '很好。按 Tab 到配送方式，用方向鍵選到超商取貨。',
+    type: '很好。按 Tab 到你的暱稱，輸入你好兩個字。',
+    select: '很好。按 Tab 到城市，用向下方向鍵選到台中。',
+    dialog: '很好。按 Tab 到打開說明，按 Enter，聽完後按 Esc 關掉。',
+    skip: '最後一步。一直按 Shift 加 Tab 回到頁面最上面，直到聽見跳到主要內容連結。',
+  };
+  var idx = 0, sawB = false, shiftHeld = false, dialogOpened = false;
+  var live = document.getElementById('live');
+
+  function current() { return order[idx]; }
+  function paint() {
+    document.querySelectorAll('#steps li').forEach(function (li, i) {
+      li.classList.toggle('step-current', i === idx);
+      li.classList.toggle('step-done', i < idx);
+      li.querySelector('span').textContent = i < idx ? '✅' : '⬜';
+    });
+  }
+  function advance() {
+    idx += 1; paint();
+    if (idx >= order.length) {
+      document.getElementById('done').hidden = false;
+      live.textContent = '教學一全部完成！可以前往教學二。';
+      try { localStorage.setItem('lesson.01', '1'); } catch (e) {}
+      return;
+    }
+    live.textContent = hints[current()];
+  }
+  paint();
+  setTimeout(function () { if (window.SRSim) window.SRSim.speak(hints.tab, { interrupt: false }); }, 700);
+
+  document.addEventListener('keydown', function (e) { shiftHeld = e.key === 'Tab' && e.shiftKey; }, true);
+
+  document.addEventListener('focusin', function (e) {
+    var id = e.target.id;
+    if (current() === 'tab' && id === 'btn-a') advance();
+    else if (current() === 'shifttab') {
+      if (id === 'btn-b') sawB = true;
+      else if (id === 'btn-a' && sawB && shiftHeld) advance();
+    }
+    else if (current() === 'skip' && id === 'skip') advance();
+  });
+  document.getElementById('btn-a').addEventListener('click', function (e) {
+    document.getElementById('btn-out').textContent = '按鈕 A 被按下了！';
+    if (current() === 'enter' && e.detail === 0) advance();
+  });
+  document.getElementById('agree').addEventListener('change', function (e) { if (current() === 'space' && e.target.checked) advance(); });
+  document.querySelectorAll('input[name="ship"]').forEach(function (r) {
+    r.addEventListener('change', function () { if (current() === 'radio' && r.value === '超商取貨') advance(); });
+  });
+  document.getElementById('nick').addEventListener('input', function (e) { if (current() === 'type' && e.target.value.indexOf('你好') !== -1) advance(); });
+  document.getElementById('city').addEventListener('change', function (e) { if (current() === 'select' && e.target.value === '台中') advance(); });
+  var dlg = document.getElementById('dlg');
+  document.getElementById('open-dialog').addEventListener('click', function () { dlg.showModal(); dialogOpened = true; });
+  dlg.addEventListener('close', function () { if (current() === 'dialog' && dialogOpened) advance(); });
+})();
+</script>
+</body>
+</html>
