@@ -104,7 +104,9 @@
       panel.innerHTML = '<div class="text-xs font-bold tracking-widest text-amber-600 mb-1">觀察者面板（' + LABEL + '）</div>' +
         '<ol class="space-y-1 text-sm">' + TASKS.map(function (t, i) {
           const d = state.done[t.id];
-          return '<li class="' + (d ? 'text-emerald-700 line-through' : 'text-slate-700') + '">' + (d ? '✅' : '⬜') + ' ' + t.title.split('。')[0] + '</li>';
+          return '<li class="' + (d ? 'text-emerald-700 line-through' : 'text-slate-700') + '">' +
+            SiteIcons.svg(d ? 'square-check' : 'square-empty', 'mr-1') +
+            '<span class="sr-only">' + (d ? '完成：' : '未完成：') + '</span>' + t.title.split('。')[0] + '</li>';
         }).join('') + '</ol>' +
         '<div id="task-stats" class="mt-2 text-sm text-slate-600"></div>' +
         '<button type="button" id="task-reset" tabindex="-1" class="mt-2 text-xs text-slate-500 underline">重置本版紀錄與購物車</button>';

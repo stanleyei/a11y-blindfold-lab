@@ -661,10 +661,10 @@
         '</table></div>' +
       '</div>' +
       '<div id="srsim-bar">' +
-        '<div class="srsim-tag">🔊 報讀<br>模擬</div>' +
+        '<div class="srsim-tag">' + SiteIcons.svg('volume') + ' 報讀<br>模擬</div>' +
         '<div class="srsim-cap"><div class="srsim-now" id="srsim-now">（尚未朗讀）</div><div class="srsim-prev" id="srsim-prev"></div></div>' +
-        '<button id="srsim-blind-btn" type="button" title="Ctrl+Alt+B">🕶 黑幕</button>' +
-        '<button id="srsim-settings-btn" type="button">⚙ 設定</button>' +
+        '<button id="srsim-blind-btn" type="button" title="Ctrl+Alt+B">' + SiteIcons.svg('blindfold') + ' 黑幕</button>' +
+        '<button id="srsim-settings-btn" type="button">' + SiteIcons.svg('settings') + ' 設定</button>' +
       '</div>';
     document.body.appendChild(ui);
     ui.querySelectorAll('button,select,input').forEach(function (b) { b.tabIndex = -1; });

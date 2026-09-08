@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>揭曉：你剛剛遇到了什麼</title>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="assets/js/icons.js"></script>
 <script defer src="assets/js/sr-sim.js"></script>
 <style>
   kbd { background:#fff; border:1px solid #cbd5e1; border-bottom-width:3px; border-radius:.35rem; padding:0 .4rem; font-family:inherit; font-weight:700; }
@@ -73,7 +74,7 @@
         <div class="text-4xl font-black text-rose-400">4</div>
         <div>
           <h3 class="text-lg font-bold">搜尋完一片安靜，加入購物車也一片安靜</h3>
-          <p class="mt-1 text-slate-700">B 版搜尋後畫面有變，但沒有任何聲音告訴你「找到 3 筆」。按下加入購物車，右下角彈出一個小小的「已加入 ✓」，你聽不到。你不知道成功沒有，只好再按一次，於是購物車裡有兩個。</p>
+          <p class="mt-1 text-slate-700">B 版搜尋後畫面有變，但沒有任何聲音告訴你「找到 3 筆」。按下加入購物車，右下角彈出一個小小的「已加入 <span data-site-icon="check"></span>」，你聽不到。你不知道成功沒有，只好再按一次，於是購物車裡有兩個。</p>
           <p class="mt-2 text-sm text-emerald-800 bg-emerald-50 rounded-lg p-3"><strong>A 版怎麼做：</strong>把重要訊息放在一個標記為「動態訊息」的區域，報讀軟體會自動唸出來。</p>
         </div>
       </li>
@@ -119,9 +120,9 @@
   <section aria-labelledby="h-takeaway" class="bg-slate-900 text-white rounded-2xl p-8">
     <h2 id="h-takeaway" class="text-2xl font-bold">帶走三句話</h2>
     <ul class="mt-4 space-y-3 text-lg leading-relaxed">
-      <li>🔊 <strong>能看到的，不一定聽得到。</strong>顏色、位置、大小、圖示，對報讀軟體全是空氣。</li>
-      <li>🏷️ <strong>每個東西要有名字和身分。</strong>「按鈕」不是名字；「加入購物車，按鈕」才是。</li>
-      <li>📣 <strong>事情發生了，要說出來。</strong>搜尋完、加入了、送出了、出錯了，都要有人講。</li>
+      <li><span data-site-icon="volume" data-icon-class="mr-1"></span> <strong>能看到的，不一定聽得到。</strong>顏色、位置、大小、圖示，對報讀軟體全是空氣。</li>
+      <li><span data-site-icon="tag" data-icon-class="mr-1"></span> <strong>每個東西要有名字和身分。</strong>「按鈕」不是名字；「加入購物車，按鈕」才是。</li>
+      <li><span data-site-icon="megaphone" data-icon-class="mr-1"></span> <strong>事情發生了，要說出來。</strong>搜尋完、加入了、送出了、出錯了，都要有人講。</li>
     </ul>
     <p class="mt-6 text-slate-300 text-sm">你今天用的是模擬器。真的報讀軟體 <a href="https://www.nvaccess.org/download/" class="underline text-amber-300">NVDA</a> 是免費的，Windows 可以直接裝來試；macOS 按 <kbd class="text-slate-900">⌘</kbd>+<kbd class="text-slate-900">F5</kbd> 就有內建的 VoiceOver。真的報讀軟體功能多很多，也快很多，但今天聽到的那些「按鈕」「連結」「編輯區」，它們唸的一模一樣。</p>
   </section>

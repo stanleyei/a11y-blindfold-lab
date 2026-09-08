@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../../favicon.ico" sizes="any">
 <title>小舖 B</title>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="../../assets/js/icons.js"></script>
 <script defer src="../../assets/js/sr-sim.js"></script>
 <script defer src="../../assets/js/shop.js"></script>
 <script defer src="../../assets/js/tasks.js"></script>
@@ -13,13 +15,13 @@
   .field.err{border-color:#e11d48;background:#fff1f2}
   .chk{width:22px;height:22px;border:2px solid #94a3b8;border-radius:6px;display:inline-grid;place-items:center;cursor:pointer;background:#fff}
   .chk.on{background:#7c3aed;border-color:#7c3aed}
-  .chk.on::after{content:'✓';color:#fff;font-weight:700;font-size:14px}
+  .chk.on::after{content:'';width:14px;height:14px;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 4 4L19 6'/%3E%3C/svg%3E")}
 </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 <button type="button" id="task-replay" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-amber-500 focus:text-slate-900 focus:font-bold focus:px-4 focus:py-2 focus:rounded">重聽任務說明</button>
 
-<div class="bg-violet-700 text-white text-xs text-center py-1">🎉 夏日特賣進行中！全館 8 折，滿千免運 🎉</div>
+<div class="bg-violet-700 text-white text-xs text-center py-1"><span data-site-icon="celebration"></span> 夏日特賣進行中！全館 8 折，滿千免運 <span data-site-icon="celebration"></span></div>
 <div class="bg-white shadow-sm">
   <div class="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center gap-5">
     <a href="index.html"><img src="../../assets/img/logo_final_v3.svg" width="120" height="36" class="h-9"></a>
@@ -45,7 +47,7 @@
 </div>
 
 <div class="max-w-3xl mx-auto px-6 py-8">
-  <div id="success" hidden class="mb-6 bg-emerald-100 text-emerald-800 rounded-2xl p-5 font-bold">✓ 訂單完成！訂單編號 <span id="order-no"></span>，感謝購買。</div>
+  <div id="success" hidden class="mb-6 bg-emerald-100 text-emerald-800 rounded-2xl p-5 font-bold"><span data-site-icon="check-circle"></span> 訂單完成！訂單編號 <span id="order-no"></span>，感謝購買。</div>
 
   <div class="text-3xl font-black text-violet-800">結帳</div>
 
@@ -69,7 +71,7 @@
     <div>
       <div class="text-sm font-semibold text-slate-600">配送方式 <span class="text-rose-600">*</span></div>
       <div class="relative mt-1">
-        <div id="ship-btn" class="field border rounded-lg px-3 py-2 w-full bg-white cursor-pointer flex justify-between" onclick="toggleShip()"><span id="ship-label" class="text-slate-400">請選擇</span><span>▾</span></div>
+        <div id="ship-btn" class="field border rounded-lg px-3 py-2 w-full bg-white cursor-pointer flex justify-between" onclick="toggleShip()"><span id="ship-label" class="text-slate-400">請選擇</span><span data-site-icon="chevron-down"></span></div>
         <div id="ship-menu" hidden class="absolute left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg z-10">
           <div class="px-3 py-2 hover:bg-violet-50 cursor-pointer" onclick="pickShip('宅配')">宅配（80 元）</div>
           <div class="px-3 py-2 hover:bg-violet-50 cursor-pointer" onclick="pickShip('超商取貨')">超商取貨（60 元）</div>

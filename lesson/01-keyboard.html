@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>教學一：鍵盤操作</title>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="../assets/js/icons.js"></script>
 <script defer src="../assets/js/sr-sim.js"></script>
 <style>
   kbd { background:#fff; border:1px solid #cbd5e1; border-bottom-width:3px; border-radius:.35rem; padding:0 .4rem; font-family:inherit; font-weight:700; }
@@ -36,18 +37,18 @@
     <p class="mt-1 text-sm text-slate-600">你不需要滑鼠。從現在開始把手放在鍵盤上。</p>
     <div id="live" class="sr-only" aria-live="polite"></div>
     <ol id="steps" class="mt-4 space-y-2">
-      <li data-step="tab" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>按 <kbd>Tab</kbd>，每按一次焦點就往前跳一格。連按幾次，直到聽見「按鈕 A，按鈕」。注意聽：路上經過了什麼？</li>
-      <li data-step="shifttab" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>再按一次 <kbd>Tab</kbd> 到「按鈕 B」，然後按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回「按鈕 A」。</li>
-      <li data-step="enter" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>停在「按鈕 A」上，按 <kbd>Enter</kbd> 啟動它。</li>
-      <li data-step="space" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到核取方塊，按<kbd>空白鍵</kbd>勾選。聽狀態怎麼變。</li>
-      <li data-step="radio" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「配送方式」，用 <kbd>↓</kbd> 或 <kbd>→</kbd> 選到「超商取貨」。</li>
-      <li data-step="type" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「你的暱稱」輸入框，打「你好」兩個字。聽打字回音。</li>
-      <li data-step="select" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「城市」下拉選單，用 <kbd>↓</kbd> 選到「台中」。</li>
-      <li data-step="dialog" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span><kbd>Tab</kbd> 到「打開說明」按 <kbd>Enter</kbd>，聽完後按 <kbd>Esc</kbd> 關掉。注意焦點回到哪裡。</li>
-      <li data-step="skip" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1">⬜</span>一直按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回頁面最上面，直到聽見「跳到主要內容，連結」。很多網站把它藏在第一個位置。</li>
+      <li data-step="tab" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>按 <kbd>Tab</kbd>，每按一次焦點就往前跳一格。連按幾次，直到聽見「按鈕 A，按鈕」。注意聽：路上經過了什麼？</li>
+      <li data-step="shifttab" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>再按一次 <kbd>Tab</kbd> 到「按鈕 B」，然後按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回「按鈕 A」。</li>
+      <li data-step="enter" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>停在「按鈕 A」上，按 <kbd>Enter</kbd> 啟動它。</li>
+      <li data-step="space" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span><kbd>Tab</kbd> 到核取方塊，按<kbd>空白鍵</kbd>勾選。聽狀態怎麼變。</li>
+      <li data-step="radio" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span><kbd>Tab</kbd> 到「配送方式」，用 <kbd>↓</kbd> 或 <kbd>→</kbd> 選到「超商取貨」。</li>
+      <li data-step="type" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span><kbd>Tab</kbd> 到「你的暱稱」輸入框，打「你好」兩個字。聽打字回音。</li>
+      <li data-step="select" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span><kbd>Tab</kbd> 到「城市」下拉選單，用 <kbd>↓</kbd> 選到「台中」。</li>
+      <li data-step="dialog" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span><kbd>Tab</kbd> 到「打開說明」按 <kbd>Enter</kbd>，聽完後按 <kbd>Esc</kbd> 關掉。注意焦點回到哪裡。</li>
+      <li data-step="skip" class="border-2 border-transparent rounded-xl p-3 bg-white"><span class="mr-1"><span data-site-icon="square-empty"></span><span class="sr-only">未完成：</span></span>一直按 <kbd>Shift</kbd>+<kbd>Tab</kbd> 退回頁面最上面，直到聽見「跳到主要內容，連結」。很多網站把它藏在第一個位置。</li>
     </ol>
     <div id="done" hidden class="mt-6 bg-emerald-100 border-2 border-emerald-400 rounded-xl p-5">
-      <p class="font-bold text-emerald-800 text-lg">🎉 全部完成！</p>
+      <p class="font-bold text-emerald-800 text-lg"><span data-site-icon="celebration"></span> 全部完成！</p>
       <p class="mt-1 text-sm text-emerald-900">你已經會用鍵盤操作網頁了。接下來學會「聽懂」報讀在說什麼。</p>
       <a href="02-reader.html" class="inline-block mt-3 bg-emerald-600 text-white font-bold px-5 py-2 rounded-lg">前往教學二 →</a>
     </div>
@@ -120,7 +121,7 @@
     document.querySelectorAll('#steps li').forEach(function (li, i) {
       li.classList.toggle('step-current', i === idx);
       li.classList.toggle('step-done', i < idx);
-      li.querySelector('span').textContent = i < idx ? '✅' : '⬜';
+      li.querySelector('span').innerHTML = SiteIcons.svg(i < idx ? 'square-check' : 'square-empty') + '<span class="sr-only">' + (i < idx ? '完成：' : '未完成：') + '</span>';
     });
   }
   function advance() {

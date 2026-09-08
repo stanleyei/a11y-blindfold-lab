@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../../favicon.ico" sizes="any">
 <title>小舖 B</title>
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script src="../../assets/js/icons.js"></script>
 <script defer src="../../assets/js/sr-sim.js"></script>
 <script defer src="../../assets/js/shop.js"></script>
 <script defer src="../../assets/js/tasks.js"></script>
@@ -13,7 +15,7 @@
 <body class="bg-slate-50 text-slate-800 font-sans">
 <button type="button" id="task-replay" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-amber-500 focus:text-slate-900 focus:font-bold focus:px-4 focus:py-2 focus:rounded">重聽任務說明</button>
 
-<div class="bg-violet-700 text-white text-xs text-center py-1">🎉 夏日特賣進行中！全館 8 折，滿千免運 🎉</div>
+<div class="bg-violet-700 text-white text-xs text-center py-1"><span data-site-icon="celebration"></span> 夏日特賣進行中！全館 8 折，滿千免運 <span data-site-icon="celebration"></span></div>
 <div class="bg-white shadow-sm">
   <div class="max-w-6xl mx-auto px-6 py-3 flex flex-wrap items-center gap-5">
     <a href="index.html"><img src="../../assets/img/logo_final_v3.svg" width="120" height="36" class="h-9"></a>
@@ -115,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-add]'); if (!b) return;
     var p = Shop.byId(b.dataset.add); Shop.addToCart(p.id); updateCount();
-    toast.textContent = '已加入購物車 ✓'; toast.style.opacity = 1; clearTimeout(t); t = setTimeout(function () { toast.style.opacity = 0; }, 1800);
+    toast.innerHTML = SiteIcons.svg('check', 'mr-1') + ' 已加入購物車'; toast.style.opacity = 1; clearTimeout(t); t = setTimeout(function () { toast.style.opacity = 0; }, 1800);
   });
 });
 </script>
