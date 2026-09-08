@@ -45,7 +45,7 @@
     const n = ['一', '二', '三', '四'][idx];
     let msg = '任務系統：叮！任務' + n + '完成。';
     if (next) msg += '下一個，' + next.title;
-    else msg += LABEL + '全部任務完成！' + summary() + ' 請睜開眼睛，告訴老師你完成了。';
+    else msg += LABEL + '全部任務完成！' + summary();
     setTimeout(function () { speak(msg, { interrupt: false }); }, 400);
     document.dispatchEvent(new CustomEvent('lab:task', { detail: { id: id, state: state } }));
     render();
