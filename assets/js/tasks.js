@@ -123,8 +123,22 @@
   }
   setInterval(renderStats, 1000);
 
+  // 黑幕開啟時把觀察者面板抬到報讀模擬器之上，讓觀察者仍看得到任務提示；
+  // 平時不抬，避免小螢幕上蓋住右下角的報讀設定面板。
+  function syncBlind() {
+    const panel = document.getElementById('task-panel'); const blind = document.getElementById('srsim-blind');
+    if (!panel) return;
+    panel.style.zIndex = blind && blind.classList.contains('on') ? '2147483001' : '';
+  }
+  function watchBlind() {
+    const blind = document.getElementById('srsim-blind'); if (!blind) return;
+    new MutationObserver(syncBlind).observe(blind, { attributes: true, attributeFilter: ['class'] });
+    syncBlind();
+  }
+
   function init() {
     render();
+    watchBlind();
     // 進入頁面後，先唸標題再唸目前任務
     setTimeout(function () { announceCurrent(false); }, 600);
   }
