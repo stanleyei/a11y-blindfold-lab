@@ -89,7 +89,7 @@
 
   // Ctrl+Alt+M 重聽任務
   document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'm') { e.preventDefault(); announceCurrent(true); }
+    if (e.ctrlKey && e.altKey && e.code === 'KeyM') { e.preventDefault(); announceCurrent(true); }
   });
 
   // 頁面上的「重聽任務」按鈕與觀察者面板

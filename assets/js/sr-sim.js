@@ -532,9 +532,9 @@
     if (e.key === 'Control' && !e.altKey && !e.shiftKey) { stop(); return; }
 
     if (e.ctrlKey && e.altKey && !e.shiftKey) {
-      if (e.key.toLowerCase() === 't') { e.preventDefault(); speak(document.title + '，頁面'); return; }
-      if (e.key.toLowerCase() === 'r') { e.preventDefault(); speak(lastSpoken); return; }
-      if (e.key.toLowerCase() === 'b') { e.preventDefault(); toggleBlindfold(); return; }
+      if (e.code === 'KeyT') { e.preventDefault(); speak(document.title + '，頁面'); return; }
+      if (e.code === 'KeyR') { e.preventDefault(); speak(lastSpoken); return; }
+      if (e.code === 'KeyB') { e.preventDefault(); toggleBlindfold(); return; }
       return;
     }
 
