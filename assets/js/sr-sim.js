@@ -430,6 +430,27 @@
     return units;
   }
 
+  // 最內層的地標容器（無則回傳 null）
+  function landmarkOf(el) {
+    let p = el;
+    while (p && p !== document.body) { const r = roleOf(p); if (r && LANDMARKS.includes(r)) return p; p = p.parentElement; }
+    return null;
+  }
+
+  // 每個地標元素的第一個單位：D 鍵跳地標的落點（巢狀地標各算一站，離開內層回到外層不再重複）
+  function landmarkStarts(units) {
+    const starts = new Set(), seen = new Set();
+    units.forEach(function (u) {
+      let p = u;
+      while (p && p !== document.body) {
+        const r = roleOf(p);
+        if (r && LANDMARKS.includes(r) && !seen.has(p)) { seen.add(p); starts.add(u); }
+        p = p.parentElement;
+      }
+    });
+    return starts;
+  }
+
   function contextAnnouncements(el) {
     const out = [];
     const dlg = el.closest('dialog,[role="dialog"],[role="alertdialog"]');
@@ -437,8 +458,7 @@
       if (dlg) out.push((accName(dlg) ? accName(dlg) + '，' : '') + (ROLE_ZH[roleOf(dlg)] || '對話方塊'));
       lastContext.dialog = dlg;
     }
-    let lm = null, p = el;
-    while (p && p !== document.body) { const r = roleOf(p); if (r && LANDMARKS.includes(r)) { lm = p; break; } p = p.parentElement; }
+    const lm = landmarkOf(el);
     if (lm !== lastContext.landmark) {
       if (lm) out.push((accName(lm) ? accName(lm) + '，' : '') + ROLE_ZH[roleOf(lm)]);
       lastContext.landmark = lm;
@@ -559,6 +579,13 @@
     if (lk === 'b') { e.preventDefault(); moveCursor(dir, function (u) { return roleOf(u) === 'button'; }, '按鈕'); return; }
     if (lk === 'f') { e.preventDefault(); moveCursor(dir, function (u) { return ['textbox', 'searchbox', 'checkbox', 'radio', 'combobox', 'listbox', 'slider', 'button'].includes(roleOf(u)); }, '表單欄位'); return; }
     if (lk === 'g') { e.preventDefault(); moveCursor(dir, function (u) { return roleOf(u) === 'img'; }, '圖形'); return; }
+    if (lk === 'd') {
+      e.preventDefault();
+      const starts = landmarkStarts(collectUnits());
+      lastContext.landmark = null; // 跳地標時一律唸出地標名稱
+      moveCursor(dir, function (u) { return starts.has(u); }, '地標');
+      return;
+    }
     if (/^[1-6]$/.test(k)) { e.preventDefault(); moveCursor(dir, function (u) { return roleOf(u) === 'heading' && headingLevel(u) === k; }, '第' + k + '級標題'); return; }
     if (k === 'Enter') {
       // 游標就在焦點元素上：交給瀏覽器原生行為
@@ -651,6 +678,7 @@
           '<tr><td><kbd>↓</kbd> / <kbd>↑</kbd></td><td>逐段朗讀（瀏覽模式）</td></tr>' +
           '<tr><td><kbd>H</kbd> / <kbd>1</kbd>～<kbd>6</kbd></td><td>下一個標題／指定層級標題</td></tr>' +
           '<tr><td><kbd>K</kbd> <kbd>B</kbd> <kbd>F</kbd> <kbd>G</kbd></td><td>下一個連結／按鈕／表單欄位／圖形（加 Shift 往上）</td></tr>' +
+          '<tr><td><kbd>D</kbd></td><td>下一個地標（導覽、主要內容、搜尋…）</td></tr>' +
           '<tr><td><kbd>Enter</kbd></td><td>啟動游標所在元素</td></tr>' +
           '<tr><td><kbd>Space</kbd></td><td>勾選／按下（在焦點上）</td></tr>' +
           '<tr><td><kbd>Esc</kbd></td><td>離開輸入框回到瀏覽模式；關閉對話方塊</td></tr>' +
