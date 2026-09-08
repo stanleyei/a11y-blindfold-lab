@@ -14,6 +14,18 @@
 - **icon 預設不要使用 `preserveAspectRatio="none"`**。這個屬性不是尺寸設定，而是讓 `viewBox` 內容以不同的 X、Y 縮放比例填滿 viewport；外層 `<img>` 與 `viewBox` 長寬比不同時會造成圖示變形。只有刻意需要滿版拉伸的裝飾性 SVG（wave、mask、線條與分隔線）才保留。
 - **HTML 中的 `<img>` 一律補上 `width` / `height` 屬性**，包含 `js/` 動態產生的 `<img>`；數值對應設計上的預設顯示尺寸與長寬比（即該元素的 `size-*` utility）。這可先確定外層圖片盒尺寸、降低 CLS，並作為 CSS 失效時的安全底線，但不會覆寫 SVG 內部的 `preserveAspectRatio`。
 
+## 靜態資源快取版本號（改版必做）
+
+全站 HTML 引用 `assets/js/*.js` 時都帶有 `?v=YYYYMMDD-NN` 版本參數，用於快取破壞。`YYYYMMDD` 為發布當日日期，`NN` 是當日發布流水號，從 `01` 開始遞增。GitHub Pages 的 `Cache-Control` 為 `max-age=600`，瀏覽器按 F5 只會重新驗證 HTML，不會重抓仍在有效期內的 JS；有版本號才能保證 HTML 與 JS 版本一致。
+
+**只要 `assets/js/` 底下任一檔案有異動，發布前務必執行：**
+
+```sh
+node scripts/bump-assets-version.mjs
+```
+
+腳本會掃描全站 `*.html`，自動計算版本號（同日流水號加一，跨日重設為 `-01`）並一次更新所有引用。不要手動改個別檔案，避免各頁版本不一致。
+
 ## Subagent 使用規範
 
 - 涉及同一檔案的修改**禁止**分派到不同 subagent，應合併為同一任務
